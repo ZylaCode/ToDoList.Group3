@@ -17,84 +17,30 @@
 
   <body>
     <main>
-      <h1>To-Do List</h1>
-      <form id="new-task-form">
-        <input id="new-task-input" type="text" placeholder="Add a task...." />
-        <button id="submit">Add Task</button>
-      </form>
+      <h1>To-Do List </h1>
+  <form id="task-form" >
+    <!-- <input id="task-completed" type="checkbox" >  -->
+    <input id="task-input" type="text" placeholder="Add a task ..." >
+    <button  id="submit">Add Task</button>
+  </form>
 
-      <section>
-        <div id="tasks"></div>
-      </section>
 
-      <section class="toDoListSection">
-        <ul id="to-do-list">
-          <li class="list-item">
-            <a
-              ><img
-                src="imgs/square-regular.svg"
-                alt="unchecked checkbox"
-                class="checkbox"
-            /></a>
-            Hit the gym
-          </li>
-          <li class="list-item">
-            <a
-              ><img
-                src="imgs/square-regular.svg"
-                alt="unchecked checkbox"
-                class="checkbox"
-            /></a>
-            Pay bills
-          </li>
-          <li class="list-item">
-            <a
-              ><img
-                src="imgs/square-regular.svg"
-                alt="unchecked checkbox"
-                class="checkbox"
-            /></a>
-            Meet friend
-          </li>
-          <li class="list-item">
-            <a
-              ><img
-                src="imgs/square-regular.svg"
-                alt="unchecked checkbox"
-                class="checkbox"
-            /></a>
-            Groceries
-          </li>
-          <li class="list-item">
-            <a
-              ><img
-                src="imgs/square-regular.svg"
-                alt="unchecked checkbox"
-                class="checkbox"
-            /></a>
-            Have lunch
-          </li>
-          <li class="list-item">
-            <a
-              ><img
-                src="imgs/square-regular.svg"
-                alt="unchecked checkbox"
-                class="checkbox"
-            /></a>
-            Read a book
-          </li>
-          <li class="list-item">
-            <a
-              ><img
-                src="imgs/square-regular.svg"
-                alt="unchecked checkbox"
-                class="checkbox"
-            /></a>
-            Organize office
-          </li>
-        </ul>
-      </section>
-    </main>
+
+<ul id="task-list">
+  <!-- <div class="text"></div> -->
+</ul>
+<!-- <div id="template-task">
+<div class="task">
+  <input type="checkbox" class="task-completed" />
+  <input
+    type="text"
+    class="task-description"
+    placeholder="Stuff I need to do..."
+  />
+<h1>To-Do List </h1>
+  <button id="submit"> Add </button>
+</div>
+</div> -->
   </body>
   <script src="index.js"></script>
 </html>

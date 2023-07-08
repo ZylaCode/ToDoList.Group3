@@ -34,24 +34,7 @@ class TaskItem {
         return this.#taskDone;
     }
 
-    addTaskItem(){
-        const taskInput = document.querySelector('#task-input');
-        taskName = taskInput.value;
-    }
-
-    markChecked(){
-        this.#taskDone = true;
-        
-    }      
-       
-   deleteTaskItem(task){
-        this.#thisArray.removeChild(task)
-        const deleteButton = document.querySelector('#delete');
-        deleteButton.innerText = 'DELETE';
-        taskItem.appendChild(deleteButton);
-        deleteButton.addEventListener('click', deleteTaskItem); 
- }
-
+    
     
     };
 
