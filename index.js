@@ -4,7 +4,7 @@
 // class ToDoManager {
 //     constructor(){
 //         this.#taskArray = [];
-//         this.#taskList = taskList;
+//         this.#taskList = document.querySelector('#tasks');
 //     }
 
 //     get taskArray(){
@@ -22,7 +22,7 @@
 //         this.#taskName = taskName;
 //         this.#taskDone = false;
         
-//         // let taskList = document.querySelector('#tasks');
+//        
 //     }
 
 //     get taskName(){
