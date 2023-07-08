@@ -104,26 +104,31 @@ form.addEventListener('submit', (event) => {
         const editButton = document.createElement('button');
         editButton.innerText = 'EDIT';
         newTask.appendChild(editButton);
+        let inputTask;
         editButton.addEventListener('click', () => {
             if(editButton.innerText === 'EDIT'){
                 editButton.innerText = 'SAVE' 
-                const inputTask = document.createElement('input');
-                newTask.appendChild(inputTask);
-                if(editButton.innerText === 'SAVE'){
-                    if (inputTask.value.trim() === "") {
-                        alert("Please edit a Task");
-                    } else{
-                        console.log(inputTask.value);
-                        newTask.innerText = inputTask.value;
-                        inputTask.remove();
-                    }   
+                inputTask = document.createElement('input');
+                newTask.appendChild(inputTask) 
+                } else {
+                    if(editButton.innerText === 'SAVE'){
+                        if (inputTask.value.trim() === "") {
+                            alert("Please edit a Task");
+                        } else{
+                            console.log(inputTask.value);
+                            newTask.innerText = inputTask.value;
+                            inputTask.remove();
+                            editButton.innerText = 'EDIT'; 
+                            newTask.appendChild(deleteButton);
+                            newTask.appendChild(editButton);
+                        }   
+                    }
                 }
-                
-             } else {
-                 editButton.innerText = 'EDIT';         
-              }
-})
+                               
+             }) 
+                    
 }
+
 })
 
 
