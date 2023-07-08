@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 //// UPDATED JS
 
 
@@ -43,24 +42,18 @@ class TaskItem {
     markChecked(){
         this.#taskDone = true;
         
-    }
-
-    
-            
-        
-
+    }      
        
-    }
-
-    deleteTaskItem(task){
+   deleteTaskItem(task){
         this.#thisArray.removeChild(task)
         const deleteButton = document.querySelector('#delete');
         deleteButton.innerText = 'DELETE';
         taskItem.appendChild(deleteButton);
-        deleteButton.addEventListener('click', deleteTaskItem) 
+        deleteButton.addEventListener('click', deleteTaskItem); 
+ }
 
-    }
-}
+    
+    };
 
 
 
@@ -158,4 +151,4 @@ form.addEventListener('submit', (event) => {
         // paragraph.addEventListener('dblclick', () => {
         //     task.removeChild(paragraph);
         // })
->>>>>>> Stashed changes
+
