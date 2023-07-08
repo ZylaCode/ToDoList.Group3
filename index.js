@@ -45,9 +45,6 @@ class ToDoManager {
     
     const toDo = new ToDoManager();
 
-
-
-
     // editTaskItem(){
     //     const editButton = document.createElement('button');
     //     editButton.innerText = 'EDIT';
