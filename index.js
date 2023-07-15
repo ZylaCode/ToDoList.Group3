@@ -6,7 +6,29 @@ class ToDoManager {
         this.input = document.querySelector('#task-input');
         this.form.addEventListener('submit', this.addTask.bind(this));  
         this.taskList.addEventListener('click', this.handleTasks.bind(this));
+        this.loadTasks();
     }
+
+
+loadTasks() {
+        // Get the tasks from localStorage and convert it to an array
+        const storeTaskItems = localStorage.getItem('tasks')
+        if (storeTaskItems !== null){
+            this.taskArray = JSON.parse(storeTaskItems);
+            console.log(this.taskArray);
+            this.taskArray.forEach(task => {
+                const newTaskTemplate = `<li>
+                    <div class = "taskElement">${task.taskName}</div>
+                    <button class = "edit-button">Edit</button>
+                    <button class = "delete-button">Delete</button>
+                    <input type = "checkbox"</>
+                    </li>`
+            this.taskList.innerHTML += newTaskTemplate;
+            });
+        } 
+}
+
+
 
 addTask(event){
     event.preventDefault();
@@ -20,10 +42,12 @@ addTask(event){
         <input type = "checkbox"</>
         </li>`
         this.taskList.innerHTML += newTaskTemplate;
-        this.input.value = "";
-       
         const toDoItem = new TaskItem(this.input.value);
         this.taskArray.push(toDoItem);
+        this.input.value = "";
+
+        const jsonTaskArray = JSON.stringify(this.taskArray);   	
+        localStorage.setItem('tasks', jsonTaskArray);       
     };
 }
 
@@ -42,6 +66,8 @@ editTask(target){
     const newTaskName = prompt('Enter new task name!', taskElement.textContent.trim())
     if (newTaskName !== null){
         taskElement.textContent = newTaskName;
+        const jsonTaskArray = JSON.stringify(this.taskArray);
+        localStorage.setItem('tasks', jsonTaskArray);
         }
     }
 }
@@ -50,7 +76,6 @@ editTask(target){
 class TaskItem{
     constructor(taskName){
         this.taskName = taskName;
-        //this.#taskDone = false;
     }
 
   editTask(value){
@@ -60,7 +85,7 @@ class TaskItem{
 
 
 const toDo = new ToDoManager();
-const newTask = new TaskItem()
+// const newTask = new TaskItem()
 
 
 
