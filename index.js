@@ -34,9 +34,6 @@ this.taskArray.push(toDoItem);
 }
 //this.form.addEventListener('submit', this.addTask.bind(this));
 
-
-
-
 class TaskItem{
     constructor(taskName){
         this.taskName = taskName;
