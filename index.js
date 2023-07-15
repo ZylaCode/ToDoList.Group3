@@ -6,7 +6,7 @@ class ToDoManager {
         this.input = document.querySelector('#task-input');
         this.form.addEventListener('submit', this.addTask.bind(this));  
         this.taskList.addEventListener('click', this.handleTasks.bind(this));
-        this.loadTasks();
+        this.loadTasks(); // load tasks from local storage
     }
 
 
@@ -15,7 +15,7 @@ loadTasks() {
         const storeTaskItems = localStorage.getItem('tasks')
         if (storeTaskItems !== null){
             this.taskArray = JSON.parse(storeTaskItems);
-            console.log(this.taskArray);
+            // console.log(this.taskArray);
             this.taskArray.forEach(task => {
                 const newTaskTemplate = `<li>
                     <div class = "taskElement">${task.taskName}</div>
@@ -42,7 +42,7 @@ addTask(event){
         </li>`
         this.taskList.innerHTML += newTaskTemplate;
         const toDoItem = new TaskItem(this.input.value);
-        this.taskArray.push(toDoItem);
+        this.taskArray.push(toDoItem); // insert the task to the array
         this.input.value = "";
 
         const jsonTaskArray = JSON.stringify(this.taskArray);   	
