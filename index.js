@@ -5,6 +5,7 @@ class ToDoManager {
         this.form = document.querySelector('#task-form');
         this.input = document.querySelector('#task-input');
         this.form.addEventListener('submit', this.addTask.bind(this));  
+        this.taskList.addEventListener('click', this.handleTasks.bind(this));
     }
 
 addTask(event){
@@ -20,29 +21,30 @@ addTask(event){
         </li>`
         this.taskList.innerHTML += newTaskTemplate;
         this.input.value = "";
+       
+        const toDoItem = new TaskItem(this.input.value);
+        this.taskArray.push(toDoItem);
+    };
+}
 
-                 
-
-const toDoItem = new TaskItem(this.input.value);
-this.taskArray.push(toDoItem);
-
-};
+handleTasks(event){
+    const target = event.target;
+    if (target.classList.contains('delete-button')) {
+        target.parentNode.remove();
+    } else if (target.classList.contains('edit-button')){
+        this.editTask(target)
+    }
 }
 
 
-// editTask(){
-    // event.preventDefault();
-    // const editButton = document.querySelector('#edit-button');
-    // editButton.addEventListener('click',() => {
-    //     editButton.textContent = ""
-    // // document.getElementByClass("task-element").innerHTML = "";
-
-    // })
-
+editTask(target){
+    const taskElement = target.parentNode.querySelector('.taskElement')
+    const newTaskName = prompt('Enter new task name!', taskElement.textContent.trim())
+    if (newTaskName !== null){
+        taskElement.textContent = newTaskName;
+        }
+    }
 }
-
-
-//this.form.addEventListener('submit', this.addTask.bind(this));
 
 
 class TaskItem{
@@ -51,16 +53,9 @@ class TaskItem{
         //this.#taskDone = false;
     }
 
-//   editTask(value){
-//     this.taskName = value;
-//   }
-
-deleteTask(){
-    document.getElementsByClassName('delete-button').addEventListener('click', (event) => {
-        event.preventDefault();
-        newTaskTemplate.remove('li');
-    })
-}
+  editTask(value){
+    this.taskName = value;
+  }
 };
 
 
