@@ -7,26 +7,20 @@ class ToDoManager {
         this.taskArray = [];
         this.taskList = document.querySelector('#task-list');
         this.form = document.querySelector('#task-form');
-        this.input = document.querySelector('input');
+        this.input = document.querySelector('#task-input');
         this.form.addEventListener('submit', this.addTask.bind(this));  
     }
 
 addTask(event){
     event.preventDefault();
-    if (input.value.trim() === "") {
+    if (this.input.value.trim() === "") {
         alert("Please Enter a Task");
     } else {
-        const newTask = document.createElement('li')
-        newTask.innerText = input.value;
-        // newTask.classList.add('div'); //CSS styling
-        taskList.appendChild(newTask);
-        input.value = "";
+        const newTask = `<li><div class="taskElement"> ${this.input.value} </div> <button class="edit-button">Add</button></li>`;
+        this.taskList.appendChild(newTask);
+        this.input.value = "";
 
-        const newTaskActions = document.querySelector('ul'); //creates and stores task actions(delete, edit buttons)
-        // newTaskActions.classList.add('actions'); // CSS styling
-        newTaskActions.appendChild(newTask);
-
-const toDoItem = new TaskItem(input.value);
+const toDoItem = new TaskItem(this.input.value);
 this.taskArray.push(toDoItem);
 
 };
@@ -46,10 +40,8 @@ class TaskItem{
     };
 
 
-
-
-// const toDo = new ToDoManager();
-// const newTask = new TaskItem()
+const toDo = new ToDoManager();
+const newTask = new TaskItem()
 
 
 
