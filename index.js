@@ -29,7 +29,6 @@ loadTasks() {
 }
 
 
-
 addTask(event){
     event.preventDefault();
     if (this.input.value.trim() === "") {
